@@ -12,12 +12,15 @@
 }(this, function () {
   // Methods
   function formatDate(date){
+	if(date){
 		date = new Date(date);
 		return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'full', timeStyle: 'long', timeZone: 'Europe/Paris' }).format(date);
-	};
+	}
+	return "";
+  };
   function formatCurrency(amount){
-		return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(amount);
-	};
+	return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(amount);
+  };
 
   // Exposed public methods
   return {
