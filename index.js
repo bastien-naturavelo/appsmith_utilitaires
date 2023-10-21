@@ -1,9 +1,9 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-      // AMD
+    // AMD
     define([], factory);
   } else if (typeof exports === 'object') {
-      // CommonJS
+    // CommonJS
     module.exports = factory();
   } else {
     // Browser globals (Note: root is window)
