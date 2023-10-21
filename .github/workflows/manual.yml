@@ -1,34 +1,22 @@
-# This is a basic workflow that is manually triggered
-
-name: Minify js
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
+name: Minify Workflow
 on:
-  workflow_dispatch:
-    # Inputs the workflow accepts.
+  push:
+    branches: [ main ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  autoMinify:
-    # The type of runner that the job will run on
+  build:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-  # Checks-out your repository under $GITHUB_WORKSPACE, so auto-minify job can access it
+      # Checks-out your repository
       - uses: actions/checkout@v2
-    
-      - name: Auto Minify
-        uses: nizarmah/auto-minify@v2.1
         with:
-          overwrite: true
-    
-      # Auto commits minified files to the repository
-      # Ignore it if you don't want to commit the files to the repository 
-      - name: Auto committing minified files
-        uses: stefanzweifel/git-auto-commit-action@v4
+          ref: ${{ github.ref }}
+
+      - name: Minify Action
+        uses: anthonyftwang/minify-action@v1.0.1
+
+      # Auto-commit to repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Github Action: Auto Minified JS and CSS files"
+          commit_message: Minify source code
           branch: ${{ github.ref }}
