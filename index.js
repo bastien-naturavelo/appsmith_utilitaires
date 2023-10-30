@@ -21,10 +21,40 @@
   function formatCurrency(amount){
 	return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(amount);
   };
+  function outlookCategoriesColors(){
+    return [
+      "e74856",
+      "ff8c00",
+      "ffab45",
+      "fff100",
+      "47d041",
+      "30c6cc",
+      "73aa24",
+      "00bcf2",
+      "8764b8",
+      "f495bf",
+      "a0aeb2",
+      "004b60",
+      "b1adab",
+      "5d5a58",
+      "000000",
+      "750b1c",
+      "ca5010",
+      "ab620d",
+      "c19c00",
+      "004b1c",
+      "004b50",
+      "0b6a0b",
+      "002050",
+      "32145a",
+      "5c005c"
+    ]
+  }
 
   // Exposed public methods
   return {
       formatDate: formatDate,
-      formatCurrency: formatCurrency
+      formatCurrency: formatCurrency,
+      outlookCategoriesColors: outlookCategoriesColors
   }
 }));
