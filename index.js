@@ -50,11 +50,19 @@
       "#5c005c"
     ]
   }
+  function itemsMap(itemsArray) {
+    return new Map(itemsArray.map( o => [o.id, o] ));
+  }
+  function getItemParents(itemsArray, item){
+    return (item.parent_id ? getItemParents(itemsArray, itemsMap(itemsArray).get(item.parent_id)) : [])
+    .concat(item.titre);
+  }
 
   // Exposed public methods
   return {
       formatDate: formatDate,
       formatCurrency: formatCurrency,
-      outlookCategoriesColors: outlookCategoriesColors
+      outlookCategoriesColors: outlookCategoriesColors,
+      getItemParents: getItemParents
   }
 }));
