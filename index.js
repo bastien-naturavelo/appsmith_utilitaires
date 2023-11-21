@@ -7,7 +7,7 @@
     module.exports = factory();
   } else {
     // Browser globals (Note: root is window)
-    root.returnExports = factory();
+    root.utils = factory();
   }
 }(this, function () {
   // Methods
@@ -57,12 +57,16 @@
     return (item.parent_id ? getItemParents(itemsArray, itemsMap(itemsArray).get(item.parent_id)) : [])
     .concat(item.titre);
   }
+  const s3Endpoint = "https://api.file.naturavelo.net";
+  const WebFileBucket = "static"
 
   // Exposed public methods
   return {
       formatDate: formatDate,
       formatCurrency: formatCurrency,
       outlookCategoriesColors: outlookCategoriesColors,
-      getItemParents: getItemParents
+      getItemParents: getItemParents,
+      s3Endpoint: s3Endpoint,
+      bucket: bucket
   }
 }));
