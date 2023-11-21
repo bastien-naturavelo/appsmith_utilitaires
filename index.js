@@ -48,7 +48,7 @@
       "#002050",
       "#32145a",
       "#5c005c"
-    ]
+    ];
   }
   function itemsMap(itemsArray) {
     return new Map(itemsArray.map( o => [o.id, o] ));
@@ -57,8 +57,8 @@
     return (item.parent_id ? getItemParents(itemsArray, itemsMap(itemsArray).get(item.parent_id)) : [])
     .concat(item.titre);
   }
-  const s3Endpoint = "https://api.file.naturavelo.net";
-  const WebFileBucket = "static"
+  function s3Endpoint() { return "https://api.file.naturavelo.net"; }
+  function WebFileBucket() { return "static"; }
 
   // Exposed public methods
   return {
