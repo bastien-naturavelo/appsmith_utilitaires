@@ -57,8 +57,8 @@
     return (item.parent_id ? getItemParents(itemsArray, itemsMap(itemsArray).get(item.parent_id)) : [])
     .concat(item.titre);
   }
-  function s3Endpoint() { return "https://api.file.naturavelo.net"; }
-  function WebFileBucket() { return "static"; }
+  const s3Endpoint = "https://api.file.naturavelo.net";
+  const WebFileBucket = "static";
 
   // Exposed public methods
   return {
@@ -67,6 +67,6 @@
       outlookCategoriesColors: outlookCategoriesColors,
       getItemParents: getItemParents,
       s3Endpoint: s3Endpoint,
-      bucket: bucket
+      WebFileBucket: WebFileBucket
   }
 }));
