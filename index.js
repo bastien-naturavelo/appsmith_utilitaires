@@ -11,9 +11,12 @@
   }
 }(this, function () {
   // Methods
-  function formatDate(date){
+  function formatDate(date,woTime=false){
 	if(date){
 		date = new Date(date);
+		if(woTime){
+			return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'full'}).format(date);
+		}
 		return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Europe/Paris' }).format(date);
 	}
 	return "";
