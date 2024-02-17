@@ -14,7 +14,7 @@
   function formatDate(date){
 	if(date){
 		date = new Date(date);
-		return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'full', timeStyle: 'long', timeZone: 'Europe/Paris' }).format(date);
+		return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Europe/Paris' }).format(date);
 	}
 	return "";
   };
